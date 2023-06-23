@@ -10,6 +10,7 @@ import kz.kcell.kcellbootcamp.BuildConfig
 import kz.kcell.kcellbootcamp.R
 import kz.kcell.kcellbootcamp.data.entities.Movie
 import kz.kcell.kcellbootcamp.databinding.FragmentMovieDetailBinding
+import kz.kcell.kcellbootcamp.presentation.MainActivity
 import kz.kcell.kcellbootcamp.utils.Constants.ARG_MOVIE_ID
 import kz.kcell.kcellbootcamp.utils.Resource
 import kz.kcell.kcellbootcamp.utils.loadImage
@@ -46,6 +47,7 @@ class MovieDetailFragment : Fragment(R.layout.fragment_movie_detail) {
 
     private fun bindMovie(movie: Movie?) = with(binding) {
         movie?.let {
+            (activity as MainActivity).setToolbarTitle(movie.title)
             movieItemTitle.text = movie.title
             detailDesc.text = movie.overview
             movieItemRelease.text = movie.releaseDate

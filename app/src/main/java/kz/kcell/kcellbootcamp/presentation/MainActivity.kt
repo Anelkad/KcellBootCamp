@@ -19,6 +19,7 @@ import kz.kcell.kcellbootcamp.utils.toast
 class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
     private val binding by viewBinding(ActivityMainBinding::bind)
+
     private val launcher = registerForActivityResult(
         ActivityResultContracts.RequestPermission()
     ) { isGranted ->
@@ -43,5 +44,9 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
                 launcher.launch(Manifest.permission.POST_NOTIFICATIONS)
             }
         }
+    }
+
+    fun setToolbarTitle(title: String) {
+        binding.toolbar.title = title
     }
 }
